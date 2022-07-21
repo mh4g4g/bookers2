@@ -1,0 +1,34 @@
+<h1>User info</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>User info</h2>
+    
+    <% if @user.errors.any? %>
+     <%= @user.errors.count %>件のエラーが発生しました
+     <ul>
+       <% @user.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+     </ul>
+   <% end %>
+   
+      <%= form_with model: @user do |f| %>
+        <label for="inputName">Name</label>
+        <%= f.text_field :name, autofocus: true, id:"Name", placeholder:"名前"%><br>
+        <label for="inputImage">Image</label>
+        <%= f.file_field :profile_image, placeholder: "Image", accept: "image/*" %><br>
+        <label for="inputBody">Introduction</label>
+        <%= f.text_field :introduction, autofocus: true, id:"Body", placeholder:"自己紹介"%><br>
+       
+        <input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User">
+     
+       
+      <% end %>
+    
+    </form>  
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+<div class="row">
+<%= render 'books/list', book: @book, user: @user %>
+<div class="col-md-8 offset-md-1">
+<h1>Books</h1>
+  <%= image_tag @user.get_profile_image(100,100) %>
+     
+  <% @books.each do |book| %>
+  
+    <p>image</p>
+    <%= link_to user_path(book.user) do %>
+    <%= image_tag @user.get_profile_image(100,100) %>
+    <% end %>
+    <%= link_to book.title, book_path(book.id) %>
+    <%= book.body %>
+  <% end %>
+
+</div>
+</div>
+</div>
+  
+  
